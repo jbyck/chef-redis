@@ -26,4 +26,7 @@ default['redis']['loglevel']     = "notice"
 default['redis']['password']     = nil
 default['redis']['db_filename']  = 'dump.rdb'
 default['redis']['db_dir']       = '/var/lib/redis'
-
+default['redis']['log_file']     = '/var/log/redis/redis-server.log'
+default['redis']['appendonly']   = 'no'
+default['redis']['appendfsync']  = 'always'
+default['redis']['save']         = ['900 1', '300 10', '60 10000']

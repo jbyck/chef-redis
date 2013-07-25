@@ -31,7 +31,7 @@ loglevel <%= node['redis']['loglevel'] %>
 # Specify the log file name. Also 'stdout' can be used to force
 # the demon to log on the standard output. Note that if you use standard
 # output for logging but daemonize, logs will be sent to /dev/null
-logfile /var/log/redis/redis-server.log
+logfile <%= node['redis']['log_file'] %>
 
 # Set the number of databases. The default database is DB 0, you can select
 # a different one on a per-connection basis using SELECT <dbid> where
@@ -51,9 +51,11 @@ databases 16
 #   after 900 sec (15 min) if at least 1 key changed
 #   after 300 sec (5 min) if at least 10 keys changed
 #   after 60 sec if at least 10000 keys changed
-save 900 1
-save 300 10
-save 60 10000
+<% if node['redis']['save'].kind_of?(Array) %>
+<% node['redis']['save'].each do |save| %>
+save <%= save %>
+<% end %>
+<% end %>
 
 # Compress string objects using LZF when dump .rdb databases?
 # For default that's set to 'yes' as it's almost always a win.
@@ -146,7 +148,7 @@ requirepass <%= node['redis']['password'] %>
 # IMPORTANT: Check the BGREWRITEAOF to check how to rewrite the append
 # log file in background when it gets too big.
 
-appendonly no
+appendonly <%= node['redis']['appendonly'] %>
 
 # The fsync() call tells the Operating System to actually write data on disk
 # instead to wait for more data in the output buffer. Some OS will really flush 
@@ -164,7 +166,7 @@ appendonly no
 # it want, for better performances (but if you can live with the idea of
 # some data loss consider the default persistence mode that's snapshotting).
 
-appendfsync always
+appendfsync <%= node['redis']['appendfsync'] %>
 # appendfsync everysec
 # appendfsync no
 
