@@ -30,3 +30,4 @@ default['redis']['log_file']     = '/var/log/redis/redis-server.log'
 default['redis']['appendonly']   = 'no'
 default['redis']['appendfsync']  = 'always'
 default['redis']['save']         = ['900 1', '300 10', '60 10000']
+default['redis']['rdbcompression'] = 'yes'
