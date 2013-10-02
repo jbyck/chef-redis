@@ -1,10 +1,9 @@
 name             "redis"
-maintainer       "dkd Internet Service GmbH"
-maintainer_email "christian.trabold@dkd.de"
+maintainer_email "jbyck@quandl.com"
 license          "Apache 2.0"
 description      "Installs/Configures redis"
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version          "0.0.4"
+version          "0.1.0"
 recipe           "redis::default", "Includes the package recipe by default."
 recipe           "redis::package", "Sets up a redis server."
 recipe           "redis::gem", "Installs redis gem for ruby development."

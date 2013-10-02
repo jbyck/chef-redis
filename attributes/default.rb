@@ -17,17 +17,20 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-default['redis']['bind']         = "127.0.0.1"
-default['redis']['port']         = "6379"
-default['redis']['config_path']  = "/etc/redis/redis.conf"
-default['redis']['daemonize']    = "yes"
-default['redis']['timeout']      = "300"
-default['redis']['loglevel']     = "notice"
-default['redis']['password']     = nil
-default['redis']['db_filename']  = 'dump.rdb'
-default['redis']['db_dir']       = '/var/lib/redis'
-default['redis']['log_file']     = '/var/log/redis/redis-server.log'
-default['redis']['appendonly']   = 'no'
-default['redis']['appendfsync']  = 'always'
-default['redis']['save']         = ['900 1', '300 10', '60 10000']
-default['redis']['rdbcompression'] = 'yes'
+default['redis']['bind']              = "127.0.0.1"
+default['redis']['port']              = "6379"
+default['redis']['config_path']       = "/etc/redis/redis.conf"
+default['redis']['daemonize']         = "yes"
+default['redis']['timeout']           = "300"
+default['redis']['loglevel']          = "notice"
+default['redis']['password']          = nil
+default['redis']['db_filename']       = 'dump.rdb'
+default['redis']['db_dir']            = '/var/lib/redis'
+default['redis']['log_file']          = '/var/log/redis/redis-server.log'
+default['redis']['appendonly']        =  'no'
+default['redis']['appendfsync']       = 'always'
+default['redis']['save']              = ['900 1', '300 10', '60 10000']
+default['redis']['rdbcompression']    = 'yes'
+default['redis']['maxmemory']         = nil
+default['redis']['maxmemory-policy']  = nil
+default['redis']['maxmemory-samples'] = nil
