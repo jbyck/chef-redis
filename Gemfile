@@ -1,7 +1,12 @@
-source :rubygems
+source 'https://rubygems.org'
 
-gem 'chef', '~> 10.12.0'
-gem 'chefspec', '~>0.9.0'
-gem 'fauxhai', '~> 0.1.1'
-gem 'foodcritic', '~>1.7.0'
-gem 'rake', '~> 0.9.2.2'
+gem 'rake'
+
+group :integration do
+  gem 'test-kitchen', '>= 1.0.0.beta.1'
+  gem 'kitchen-vagrant'
+end
+
+group :test do
+  gem 'foodcritic'
+end
