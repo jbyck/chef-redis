@@ -59,11 +59,12 @@ group redis_group
 
 user redis_user do
   gid redis_group
-  home    "/var/lib/redis"
+  home    node['redis']['db_dir']
   system  true
 end
 
-%w{/var/run/redis.pid /var/log/redis /var/lib/redis}.each do |dir|
+
+['/var/run/redis.pid', '/var/log/redis', node['redis']['db_dir']].each do |dir|
   directory dir do
     owner       redis_user
     group       redis_group

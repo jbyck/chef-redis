@@ -11,7 +11,9 @@ platforms:
 
 suites:
 - name: source_26_10
-  run_list: ["recipe[redis]"]
+  run_list: 
+    - recipe[redis::source]
+    - recipe[minitest-handler]
   attributes: 
     redis:
       source:
