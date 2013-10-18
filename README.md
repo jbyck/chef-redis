@@ -2,16 +2,14 @@
 
 Installs Redis. Redis is an open source, advanced key-value store.
 
-It is often referred to as a data structure server since keys can contain strings, hashes, lists, sets and sorted sets.
 
 Details http://redis.io/
 
-This is a fork from original [https://github.com/ctrabold/chef-redis](chef-redis cookbook)
+This is a fork from original [https://github.com/ctrabold/chef-redis](chef-redis cookbook) used by Quandl.
 
 # REQUIREMENTS:
 
 Currently tested on Ubuntu 12.04
-  
 
 # USAGE:
 

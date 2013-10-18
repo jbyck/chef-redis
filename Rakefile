@@ -26,3 +26,10 @@ desc "Runs knife cookbook test"
 task :knife do
   sh "knife cookbook test cookbook --verbose --all --cookbook-path ./"
 end
+
+begin
+  require 'kitchen/rake_tasks'
+  Kitchen::RakeTasks.new
+rescue LoadError
+  puts ">>>>> Kitchen gem not loaded, omitting tasks" unless ENV['CI']
+end
